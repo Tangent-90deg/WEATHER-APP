@@ -1,0 +1,11 @@
+
+.tab.current-tab{
+    background-color: #b5ebb6; /* Green background for the current tab */
+    border-radius: 4px;;
+}
+
+.form-container.active{
+    scale: 1.05; /* Slightly enlarge the active form container */
+    opacity: 1; /* Ensure the active form container is fully visible */
+    display: flex;
+}
