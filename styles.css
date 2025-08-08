@@ -1,3 +1,13 @@
+html, body {
+    overflow-x: hidden; /* stop horizontal scroll */
+    overflow-y: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 *,*::before,*::after {
  margin:0;
  padding:0;
