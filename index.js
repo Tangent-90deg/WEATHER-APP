@@ -117,7 +117,7 @@ const userInfoContainer=document.querySelector(".user-info-container");
 let currentTab = usertab;
 const API_KEY = "49ede647392d36d625057c2bc3a24f17";
 //current tab k andr kuch properties hote hain jo current tab ko represent karte hain
-currentTab.classList.add("current-tab");//current tab ko current-tab class add karte hain
+currentTab.classList.add("current-tab");//current tab mein current-tab ka class add karte hain
 
 //ek kaam or pending hai
 
@@ -131,7 +131,7 @@ function switchTab(clickedTab) {
     //agr searchform contains active class nahi hai toh uss case me search form ko active class add karte hain
     if(!searchForm.classList.contains("active"))
     {
-        //kya search form wala container is invisible hai if yes make it visible if no then make it invisible
+    //kya search form wala container is invisible hai if yes make it visible if no then make it invisible
      userInfoContainer.classList.remove("active");
      grantAccessContainer.classList.remove("active");
      searchForm.classList.add("active");
@@ -219,14 +219,15 @@ function renderWeatherInfo(weatherInfo) {
     const pressure = document.querySelector("[data-pressure]");
 
     //fetch values from weatherInfo object and put it UI elements
+    //optional chaining
     cityName.innerText = weatherInfo?.name;
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     desc.innerText = weatherInfo?.weather?.[0]?.description;
     weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-    temp.innerText = weatherInfo?.main?.temp;
-    windspeed.innerText = weatherInfo?.wind?.speed;
-    humidity.innerText = weatherInfo?.main?.humidity;
-    pressure.innerText = weatherInfo?.clouds?.all;
+    temp.innerText = `${weatherInfo?.main?.temp} °C`;
+    windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
+    humidity.innerText = `${weatherInfo?.main?.humidity} %`;
+    pressure.innerText = `${weatherInfo?.clouds?.all} %`;
 
 }
 
@@ -259,7 +260,7 @@ function showPosition(position)
 
 
 const grantAccessButton = document.querySelector("[data-grantAccess]");
-
+//call back function ko call kia gyahai idhr..
 grantAccessButton.addEventListener("click",getLocation);
 
 let searchInput = document.querySelector("[data-searchInput]");
